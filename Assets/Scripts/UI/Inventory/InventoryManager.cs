@@ -453,11 +453,13 @@ public class InventoryManager : MonoBehaviour
             if (availableCurrency >= itemDefinition.cost)
             {
                 mAvailableCurrency -= itemDefinition.cost;
+                mItemCreateButton?.SetEnabled(true);
                 Instantiate(itemDefinition.prefab, createDestination.transform);
                 return true;
             }
             else
             {
+                mItemCreateButton?.SetEnabled(false);
                 return false;
             }
 
